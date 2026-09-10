@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pracownia MAMAMI - Strona w budowie</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f2ebe5;
+        color: #4a433e;
+    }
+    h1 {
+        font-family: 'Lora', serif;
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+        animation: fadeUp 0.8s ease-out forwards;
+    }
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8 box-border">
 
+<main class="bg-white rounded-3xl p-8 sm:p-12 max-w-3xl w-full text-center shadow-[0_10px_40px_rgba(0,0,0,0.03)] animate-fade-up">
+    
+    <div class="flex justify-center mb-8">
+        <img src="https://i.imgur.com/Mgyagmh.png" alt="Logo Pracownia MAMAMI" class="h-24 sm:h-32 w-auto object-contain">
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-medium text-[#3e3834] mb-4">
+        Strona w budowie
+    </h1>
+    <p class="text-[1.05rem] text-[#7a7068] max-w-lg mx-auto leading-relaxed mb-10">
+        Pracujemy nad nową odsłoną naszej witryny. Już wkrótce wrócimy do Was z czymś pięknym!
+    </p>
+
+    <div class="border-t border-[#f0e9e4] pt-8">
+        <h2 class="text-xs uppercase tracking-[0.15em] text-[#a39b94] font-semibold mb-6">
+            Kontakt z nami
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            
+            <div onclick="copyText('+48 791 191 662', this)" class="relative flex items-center p-5 bg-[#faf7f4] border border-[#f0e9e4] rounded-2xl cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#e3d9d1] group overflow-hidden text-left">
+                <div class="flex-shrink-0 w-12 h-12 bg-[#ede4dc] rounded-full flex items-center justify-center mr-4 transition-transform group-hover:scale-105">
+                    <i class="ph ph-phone text-xl text-[#5c544d]"></i>
+                </div>
+                <div class="flex flex-col min-w-0">
+                    <span class="text-[0.75rem] text-[#8c837c] mb-1">Zadzwoń (kliknij, by skopiować)</span>
+                    <span class="text-base font-semibold text-[#3e3834] whitespace-nowrap">+48 791 191 662</span>
+                </div>
+                <div class="toast absolute inset-0 bg-[#faf7f4]/95 flex items-center justify-center text-[#4a433e] font-semibold opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-sm z-10 rounded-2xl">
+                    Skopiowano!
+                </div>
+            </div>
+
+            <div onclick="copyText('pracowniamamami@gmail.com', this)" class="relative flex items-center p-5 bg-[#faf7f4] border border-[#f0e9e4] rounded-2xl cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#e3d9d1] group overflow-hidden text-left">
+                <div class="flex-shrink-0 w-12 h-12 bg-[#ede4dc] rounded-full flex items-center justify-center mr-4 transition-transform group-hover:scale-105">
+                    <i class="ph ph-envelope-simple text-xl text-[#5c544d]"></i>
+                </div>
+                <div class="flex flex-col min-w-0">
+                    <span class="text-[0.75rem] text-[#8c837c] mb-1">Napisz (kliknij, by skopiować)</span>
+                    <span class="text-base font-semibold text-[#3e3834] truncate">pracowniamamami@gmail.com</span>
+                </div>
+                <div class="toast absolute inset-0 bg-[#faf7f4]/95 flex items-center justify-center text-[#4a433e] font-semibold opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-sm z-10 rounded-2xl">
+                    Skopiowano!
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mt-10 text-xs text-[#a39b94]">
+        &copy; 2026 Pracownia MAMAMI. Wszelkie prawa zastrzeżone.
+    </div>
+
+</main>
+
+<script>
+    function copyText(text, element) {
+        const tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        
+        const toast = element.querySelector('.toast');
+        toast.style.opacity = '1';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
